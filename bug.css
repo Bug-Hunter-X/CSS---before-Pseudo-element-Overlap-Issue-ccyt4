@@ -1,0 +1,21 @@
+The following CSS code causes an unexpected layout issue in certain browsers.  The `::before` pseudo-element is intended to add a background image, but it overlaps the main content unexpectedly:
+
+```css
+div {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background-color: lightblue;
+}
+
+div::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('image.jpg');
+  z-index: -1; /* Attempts to place the image behind the main content */
+}
+```
