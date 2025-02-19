@@ -1,0 +1,14 @@
+The solution uses `background-image` directly on the `div` element instead of relying on the `::before` pseudo-element. This approach provides a simpler and more reliable way to add the background image without the risk of z-index conflicts:
+
+```css
+div {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background-color: lightblue;
+  background-image: url('image.jpg');
+  background-size: cover;
+}
+```
+
+Alternatively, if for any reason using a `::before` is required, consider using a higher `z-index` value with careful management to ensure correct stacking order. This may also require adjustments to the HTML structure to avoid conflicts.
